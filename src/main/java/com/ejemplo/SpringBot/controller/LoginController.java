@@ -30,7 +30,7 @@ public class LoginController {
     }  
     @PostMapping ("/buscar/correo/{id}")
     public String searchCorreo (@PathVariable Long id){
-        return persoServ.obtenerCorreo(id);
+        return persoServ.obtenerCorreo(id) +System.lineSeparator()+ persoServ.obtenerContra(id);
     }
     @PostMapping ("/buscar/contra/{id}")
     public String searchContra (@PathVariable Long id){
