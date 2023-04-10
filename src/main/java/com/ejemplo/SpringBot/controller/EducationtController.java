@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Map; 
 
 @RestController
 @RequestMapping("/api/v2/")
@@ -23,7 +23,7 @@ public class EducationtController {
     private EducationtRepository repositoriot;
 
     //este metodo sirve para listar todos los empleados
-    @GetMapping("/educationt")
+    @GetMapping("/educationts")
     public List<Educationt> listarTodosLosEducationt()
     {
         return repositoriot.findAll();
@@ -31,13 +31,13 @@ public class EducationtController {
 
 
     //este metodo sirve para guardar el empleado
-    @PostMapping("/educationtt")
+    @PostMapping("/educationts")
     public Educationt guardarEducationt(@RequestBody Educationt educationt) {
         return repositoriot.save(educationt);
     }
 
     //este metodo sirve para buscar un empleado
-    @GetMapping("/educationt/{id}")
+    @GetMapping("/educationts/{id}")
     public ResponseEntity<Educationt> obtenerEducationtPorId(@PathVariable Long id){
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
@@ -45,7 +45,7 @@ public class EducationtController {
     }
 
     //este metodo sirve para actualizar empleado
-    @PutMapping("/educationt/{id}")
+    @PutMapping("/educationts/{id}")
     public ResponseEntity<Educationt> actualizarEducationt(@PathVariable Long id,@RequestBody Educationt detallesEducationt){
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
@@ -60,7 +60,7 @@ public class EducationtController {
     }
 
     //este metodo sirve para eliminar un empleado
-    @DeleteMapping("/educationt/{id}")
+    @DeleteMapping("/educationts/{id}")
     public ResponseEntity<Object> eliminarEducationt(@PathVariable Long id){
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));

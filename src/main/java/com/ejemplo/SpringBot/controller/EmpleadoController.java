@@ -19,7 +19,7 @@ public class EmpleadoController {
     @Autowired
     private EmpleadoRepository repositorio;
 
-    //este metodo sirve para listar todos los empleados
+    //este metodo sirve para listar todos los empleado
     @GetMapping("/empleados")
     public List<Empleado> listarTodosLosEmpleados() {
         return repositorio.findAll();
@@ -56,7 +56,7 @@ public class EmpleadoController {
 
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/empleados/{id}")
-    public ResponseEntity<Object> eliminarEmpleado(@PathVariable Long id){
+    public ResponseEntity<Map<String,Boolean>> eliminarEmpleado(@PathVariable Long id){
         Empleado empleado = repositorio.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 
