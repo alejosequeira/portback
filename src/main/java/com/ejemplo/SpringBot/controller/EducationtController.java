@@ -59,6 +59,8 @@ public class EducationtController {
         return ResponseEntity.ok(educationtActualizado);
     }
 
+
+}
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/educationts/{id}")
     public ResponseEntity<Object> eliminarEducationt(@PathVariable Long id){
@@ -70,4 +72,3 @@ public class EducationtController {
         respuesta.put("eliminar",Boolean.TRUE);
         return ResponseEntity.ok(respuesta);
     }
-}
