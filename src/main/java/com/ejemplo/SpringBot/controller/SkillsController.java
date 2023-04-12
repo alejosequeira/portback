@@ -1,20 +1,86 @@
 
 package com.ejemplo.SpringBot.controller;
 
+import com.ejemplo.SpringBot.excepciones.ResourceNotFoundException;
 import com.ejemplo.SpringBot.model.Skills;
+import com.ejemplo.SpringBot.repository.SkillsRepository;
 import com.ejemplo.SpringBot.service.ISkillsService;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+
+@RequestMapping("/api/v2/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SkillsController {
     
+    
+    
+    
+    
+    @Autowired
+    private SkillsRepository reposki;      
+    
+    @GetMapping("/skills")
+    public List<Skills> listarTodosLosSkills()
+    {
+        return reposki.findAll();
+    }
+    //este metodo sirve para guardar el info
+    @PostMapping("/skills")
+    public Skills guardarSkills(@RequestBody Skills skill) {
+        return reposki.save(skill);
+    }
+    //este metodo sirve para buscar un info
+    @GetMapping("/skills/{id}")
+    public ResponseEntity<Skills> obtenerSkillsPorId(@PathVariable Long id){
+        Skills info= reposki.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+        return ResponseEntity.ok(info);
+    }
+    //este metodo sirve para actualizar empleado
+    @PutMapping("/skills/{id}")
+    public ResponseEntity<Skills> actualizarSkills(@PathVariable Long id,@RequestBody Skills detallesSkills){
+      Skills info = reposki.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
+
+        info.setTitulo(detallesSkills.getTitulo());
+        info.setPorcentaje(detallesSkills.getPorcentaje());
+        
+
+        Skills skillsActualizado = reposki.save(info);
+        return ResponseEntity.ok(skillsActualizado);
+    }
+    //este metodo sirve para eliminar un empleado
+    @DeleteMapping("/skills/{id}")
+    public ResponseEntity<Object> eliminarSkills(@PathVariable Long id){
+        Skills info = reposki.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
+
+        reposki.delete(info);
+        Map<String, Boolean> respuesta = new HashMap<>();
+        respuesta.put("eliminar",Boolean.TRUE);
+        return ResponseEntity.ok(respuesta);
+    }
+    
+    
+    
+    
+    
+    /*
     // CONTROLLER OF Skills
     @Autowired
     private ISkillsService skillServ;
@@ -31,6 +97,6 @@ public class SkillsController {
     @PutMapping ("/edit/skill")
     public void editarSkills (@RequestBody Skills edi){
         skillServ.editarSkill(edi);
-    }
+    }*/
     
 }

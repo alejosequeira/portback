@@ -18,14 +18,12 @@ import java.util.Map;
 public class EducationtController {
 
 
-
     @Autowired
     private EducationtRepository repositoriot;
 
     //este metodo sirve para listar todos los empleados
     @GetMapping("/educationts")
-    public List<Educationt> listarTodosLosEducationt()
-    {
+    public List<Educationt> listarTodosLosEducationt() {
         return repositoriot.findAll();
     }
 
@@ -38,7 +36,7 @@ public class EducationtController {
 
     //este metodo sirve para buscar un empleado
     @GetMapping("/educationts/{id}")
-    public ResponseEntity<Educationt> obtenerEducationtPorId(@PathVariable Long id){
+    public ResponseEntity<Educationt> obtenerEducationtPorId(@PathVariable Long id) {
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(educationt);
@@ -46,7 +44,7 @@ public class EducationtController {
 
     //este metodo sirve para actualizar empleado
     @PutMapping("/educationts/{id}")
-    public ResponseEntity<Educationt> actualizarEducationt(@PathVariable Long id,@RequestBody Educationt detallesEducationt){
+    public ResponseEntity<Educationt> actualizarEducationt(@PathVariable Long id, @RequestBody Educationt detallesEducationt) {
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 
@@ -60,15 +58,15 @@ public class EducationtController {
     }
 
 
-}
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/educationts/{id}")
-    public ResponseEntity<Object> eliminarEducationt(@PathVariable Long id){
+    public ResponseEntity<Object> eliminarEducationt(@PathVariable Long id) {
         Educationt educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 
         repositoriot.delete(educationt);
         Map<String, Boolean> respuesta = new HashMap<>();
-        respuesta.put("eliminar",Boolean.TRUE);
+        respuesta.put("eliminar", Boolean.TRUE);
         return ResponseEntity.ok(respuesta);
     }
+}
