@@ -10,13 +10,13 @@ public class Educationt {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "titulot", length = 60, nullable = false)
+    @Column(name = "titulot", length = 140, nullable = false)
     private String titulot;
-    @Column(name = "iniciot", length = 60, nullable = false)
+    @Column(name = "iniciot", length = 140, nullable = false)
     private String iniciot;
-    @Column(name = "fint", length = 60, nullable = false)
+    @Column(name = "fint", length = 140, nullable = false)
     private String fint;
-    @Column(name = "descriptiont", length = 60, nullable = false)
+    @Column(name = "descriptiont", length = 140, nullable = false)
     private String descriptiont;
 
     public Educationt() {

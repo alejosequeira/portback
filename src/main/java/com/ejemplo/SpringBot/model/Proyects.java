@@ -21,7 +21,7 @@ public class Proyects {
     private String iniciot;
     @Column(name = "fint", length = 60, nullable = false)
     private String fint;
-    @Column(name = "descriptiont", length = 60, nullable = false)
+    @Column(name = "descriptiont", length = 140, nullable = false)
     private String descriptiont;
 
     public Proyects() {

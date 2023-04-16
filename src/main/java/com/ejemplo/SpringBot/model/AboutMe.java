@@ -16,7 +16,7 @@ public class AboutMe {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "descripcion", length = 60, nullable = false)
+    @Column(name = "descripcion", length = 140, nullable = false)
     private String descripcion;
 
     public AboutMe() {

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfolio-db2fd.web.app")
 public class UserLoginController {
     @Autowired
     private IUserLoginService loginService;
@@ -21,7 +21,7 @@ public class UserLoginController {
     }
 
     @PostMapping("/api/login")
-    public boolean login(@RequestBody User user){
+    public boolean checkLogin(@RequestBody User user){
         return loginService.checkLogin(user);
     }
     
