@@ -1,4 +1,4 @@
-
+/*
 package com.ejemplo.SpringBot.Controller;
 
 import com.ejemplo.SpringBot.model.Login;
@@ -62,4 +62,4 @@ public class LoginController {
         return persoServ.buscarPersona(id);
     }
     
-}
+}*/

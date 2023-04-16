@@ -49,7 +49,6 @@ com\ejemplo\SpringBot\controller\EducationController.class
 com\ejemplo\SpringBot\model\Educationt.class
 com\ejemplo\SpringBot\model\User.class
 com\ejemplo\SpringBot\controller\WorkController.class
-com\ejemplo\SpringBot\controller\LoginController.class
 com\ejemplo\SpringBot\model\UserPersona.class
 com\ejemplo\SpringBot\repository\UserLoginRepository.class
 com\ejemplo\SpringBot\model\Languages.class
