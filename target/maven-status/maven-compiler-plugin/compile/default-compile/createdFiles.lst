@@ -3,6 +3,7 @@ com\ejemplo\SpringBot\service\ILoginService.class
 com\ejemplo\SpringBot\controller\UserLoginController.class
 com\ejemplo\SpringBot\controller\UserPersonaController.class
 com\ejemplo\SpringBot\repository\EducationRepository.class
+com\ejemplo\SpringBot\WebConfig.class
 com\ejemplo\SpringBot\model\InfoBasica.class
 com\ejemplo\SpringBot\service\IWorkService.class
 com\ejemplo\SpringBot\model\Photo.class
