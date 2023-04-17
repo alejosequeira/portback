@@ -14,7 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v2/")
-@CrossOrigin(origins = "https://portfolio-db2fd.web.app")
+@CrossOrigin(origins = "https://hosting-angularr.web.app")
 public class EducationtController {
 
 

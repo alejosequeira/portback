@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = "https://portfolio-db2fd.web.app")
+@CrossOrigin(origins = "https://hosting-angularr.web.app")
 public class UserLoginController {
     @Autowired
     private IUserLoginService loginService;
