@@ -5,7 +5,6 @@ import com.ejemplo.SpringBot.excepciones.ResourceNotFoundException;
 import com.ejemplo.SpringBot.model.AboutMe;
 import com.ejemplo.SpringBot.repository.AboutMeRepository;
 import java.util.HashMap;
-import com.ejemplo.SpringBot.service.IAboutMeService;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v2/")
-@CrossOrigin(origins = "http://localhost:4200")
 public class AboutMeController {
     @Autowired
     private AboutMeRepository repoAbout;
