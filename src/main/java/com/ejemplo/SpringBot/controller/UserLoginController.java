@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin(origins = "https://serverfront-291c8.web.app")
 public class UserLoginController {
     @Autowired
     private IUserLoginService loginService;

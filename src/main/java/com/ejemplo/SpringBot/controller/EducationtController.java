@@ -14,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v2/")
+@CrossOrigin(origins = "https://serverfront-291c8.web.app")
 public class EducationtController {
 
 

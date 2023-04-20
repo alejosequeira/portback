@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v2/")
+@CrossOrigin(origins = "https://serverfront-291c8.web.app")
 public class LanguagesController {
     
     @Autowired

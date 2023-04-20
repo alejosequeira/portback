@@ -13,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/")
+@CrossOrigin(origins = "https://serverfront-291c8.web.app")
 public class EmpleadoController {
 
     @Autowired
