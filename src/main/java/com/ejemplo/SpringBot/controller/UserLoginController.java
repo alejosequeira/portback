@@ -26,7 +26,7 @@ public class UserLoginController {
     }
     
     @GetMapping("/verUser")  
-    public List<User> getUserLogin(){
+    public List<User> get(){
         return loginService.getUserLogin();
     }
 
