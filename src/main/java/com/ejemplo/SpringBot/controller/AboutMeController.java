@@ -29,20 +29,20 @@ public class AboutMeController {
 
     //este metodo sirve para listar todos los about
     @GetMapping("/about")
-    public List<AboutMe> listarTodosLosAbout()
+    public List<AboutMe> listarTodos()
     {
         return repoAbout.findAll();
     }
 
     //este metodo sirve para guardar el about
     @PostMapping("/about")
-    public AboutMe guardarAbout(@RequestBody AboutMe about) {
+    public AboutMe guardar(@RequestBody AboutMe about) {
         return repoAbout.save(about);
     }
 
     //este metodo sirve para buscar un about
     @GetMapping("/about/{id}")
-    public ResponseEntity<AboutMe> obtenerAboutPorId(@PathVariable Long id){
+    public ResponseEntity<AboutMe> obtenerPorId(@PathVariable Long id){
         AboutMe aboutme= repoAbout.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(aboutme);
@@ -50,7 +50,7 @@ public class AboutMeController {
 
     //este metodo sirve para actualizar empleado
     @PutMapping("/about/{id}")
-    public ResponseEntity<AboutMe> actualizarAboutMe(@PathVariable Long id,@RequestBody AboutMe detallesAboutMe){
+    public ResponseEntity<AboutMe> actualizar(@PathVariable Long id,@RequestBody AboutMe detallesAboutMe){
         AboutMe aboutme = repoAbout.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el about con el ID : " + id));
 
@@ -62,7 +62,7 @@ public class AboutMeController {
 
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/about/{id}")
-    public ResponseEntity<Object> eliminarAboutMe(@PathVariable Long id){
+    public ResponseEntity<Object> eliminar(@PathVariable Long id){
         AboutMe aboutme = repoAbout.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el about con el ID : " + id));
 

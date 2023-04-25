@@ -31,25 +31,25 @@ public class InfoBasicaController {
     private InfoBasicaRepo repoInfo;      
     
     @GetMapping("/info")
-    public List<InfoBasica> listarTodosLosInfoBasica()
+    public List<InfoBasica> listarTodos()
     {
         return repoInfo.findAll();
     }
     //este metodo sirve para guardar el info
     @PostMapping("/info")
-    public InfoBasica guardarInfoBasica(@RequestBody InfoBasica info) {
+    public InfoBasica guardar(@RequestBody InfoBasica info) {
         return repoInfo.save(info);
     }
     //este metodo sirve para buscar un info
     @GetMapping("/info/{id}")
-    public ResponseEntity<InfoBasica> obtenerInfoBasicaPorId(@PathVariable Long id){
+    public ResponseEntity<InfoBasica> obtenerPorId(@PathVariable Long id){
         InfoBasica info= repoInfo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(info);
     }
     //este metodo sirve para actualizar empleado
     @PutMapping("/info/{id}")
-    public ResponseEntity<InfoBasica> actualizarInfoBasica(@PathVariable Long id,@RequestBody InfoBasica detallesInfoBasica){
+    public ResponseEntity<InfoBasica> actualizar(@PathVariable Long id,@RequestBody InfoBasica detallesInfoBasica){
       InfoBasica info = repoInfo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
@@ -63,7 +63,7 @@ public class InfoBasicaController {
     }
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/info/{id}")
-    public ResponseEntity<Object> eliminarInfoBasica(@PathVariable Long id){
+    public ResponseEntity<Object> eliminar(@PathVariable Long id){
         InfoBasica info = repoInfo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
