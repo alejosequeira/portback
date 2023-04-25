@@ -35,25 +35,25 @@ public class SkillsController {
     private SkillsRepository reposki;      
     
     @GetMapping("/skills")
-    public List<Skills> listarTodosLosSkills()
+    public List<Skills> listarTodos()
     {
         return reposki.findAll();
     }
     //este metodo sirve para guardar el info
     @PostMapping("/skills")
-    public Skills guardarSkills(@RequestBody Skills skill) {
+    public Skills guardar(@RequestBody Skills skill) {
         return reposki.save(skill);
     }
     //este metodo sirve para buscar un info
     @GetMapping("/skills/{id}")
-    public ResponseEntity<Skills> obtenerSkillsPorId(@PathVariable Long id){
+    public ResponseEntity<Skills> obtenerPorId(@PathVariable Long id){
         Skills info= reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(info);
     }
     //este metodo sirve para actualizar empleado
     @PutMapping("/skills/{id}")
-    public ResponseEntity<Skills> actualizarSkills(@PathVariable Long id,@RequestBody Skills detallesSkills){
+    public ResponseEntity<Skills> actualizar(@PathVariable Long id,@RequestBody Skills detallesSkills){
       Skills info = reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
@@ -66,7 +66,7 @@ public class SkillsController {
     }
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/skills/{id}")
-    public ResponseEntity<Object> eliminarSkills(@PathVariable Long id){
+    public ResponseEntity<Object> eliminar(@PathVariable Long id){
         Skills info = reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
