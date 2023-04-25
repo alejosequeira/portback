@@ -24,20 +24,20 @@ public class EducationController {
     private IEducationService educServ;
     
     @PostMapping ("/new/education")
-    public void agregarEducation (@RequestBody Education edu){
+    public void agregar (@RequestBody Education edu){
         educServ.crearEducation(edu);
     }
     @GetMapping ("/ver/education")
     @ResponseBody
-    public List <Education> verEducations(){
+    public List <Education> ver(){
         return educServ.verEducation();
     }
     @PutMapping ("/edit/education")
-    public void editarEducation (@RequestBody Education edi){
+    public void editar (@RequestBody Education edi){
         educServ.editarEducation(edi);
     }
     @DeleteMapping ("/delete/education/{id}")
-    public void borrarEducation (@PathVariable Long id){
+    public void borrar(@PathVariable Long id){
         educServ.borrarEducation(id);
     }
     
