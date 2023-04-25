@@ -28,25 +28,25 @@ public class LanguagesController {
     private LanguagesRepository reposki;      
     
     @GetMapping("/languages")
-    public List<Languages> listarTodosLosLanguages()
+    public List<Languages> listarTodos()
     {
         return reposki.findAll();
     }
     //este metodo sirve para guardar el info
     @PostMapping("/languages")
-    public Languages guardarLanguages(@RequestBody Languages skill) {
+    public Languages guardar(@RequestBody Languages skill) {
         return reposki.save(skill);
     }
     //este metodo sirve para buscar un info
     @GetMapping("/languages/{id}")
-    public ResponseEntity<Languages> obtenerLanguagesPorId(@PathVariable Long id){
+    public ResponseEntity<Languages> obtenerPorId(@PathVariable Long id){
         Languages info= reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(info);
     }
     //este metodo sirve para actualizar empleado
     @PutMapping("/languages/{id}")
-    public ResponseEntity<Languages> actualizarLanguages(@PathVariable Long id,@RequestBody Languages detallesLanguages){
+    public ResponseEntity<Languages> actualizar(@PathVariable Long id,@RequestBody Languages detallesLanguages){
       Languages info = reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
@@ -59,7 +59,7 @@ public class LanguagesController {
     }
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/languages/{id}")
-    public ResponseEntity<Object> eliminarLanguages(@PathVariable Long id){
+    public ResponseEntity<Object> eliminar(@PathVariable Long id){
         Languages info = reposki.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el info con el ID : " + id));
 
