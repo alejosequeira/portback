@@ -21,20 +21,20 @@ public class EmpleadoController {
 
     //este metodo sirve para listar todos los empleado
     @GetMapping("/empleados")
-    public List<Empleado> listarTodosLosEmpleados() {
+    public List<Empleado> listarTodos() {
         return repositorio.findAll();
     }
 
 
     //este metodo sirve para guardar el empleado
     @PostMapping("/empleados")
-    public Empleado guardarEmpleado(@RequestBody Empleado empleado) {
+    public Empleado guardar(@RequestBody Empleado empleado) {
         return repositorio.save(empleado);
     }
 
     //este metodo sirve para buscar un empleado
     @GetMapping("/empleados/{id}")
-    public ResponseEntity<Empleado> obtenerEmpleadoPorId(@PathVariable Long id){
+    public ResponseEntity<Empleado> obtenerPorId(@PathVariable Long id){
         Empleado empleado = repositorio.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
         return ResponseEntity.ok(empleado);
@@ -42,7 +42,7 @@ public class EmpleadoController {
 
     //este metodo sirve para actualizar empleado
     @PutMapping("/empleados/{id}")
-    public ResponseEntity<Empleado> actualizarEmpleado(@PathVariable Long id,@RequestBody Empleado detallesEmpleado){
+    public ResponseEntity<Empleado> actualizar(@PathVariable Long id,@RequestBody Empleado detallesEmpleado){
         Empleado empleado = repositorio.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 
@@ -56,7 +56,7 @@ public class EmpleadoController {
 
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/empleados/{id}")
-    public ResponseEntity<Map<String,Boolean>> eliminarEmpleado(@PathVariable Long id){
+    public ResponseEntity<Map<String,Boolean>> eliminar(@PathVariable Long id){
         Empleado empleado = repositorio.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
 
