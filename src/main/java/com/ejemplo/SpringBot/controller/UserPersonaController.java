@@ -17,17 +17,17 @@ public class UserPersonaController {
     private IUserPersonaService personaService;
 
     @GetMapping("/miInfo")
-    public List<UserPersona> getPersona(){
+    public List<UserPersona> get(){
         return personaService.getPersona();
     }
     @PostMapping("/miInfo")
-    public String addPersona(@RequestBody UserPersona persona){
+    public String add(@RequestBody UserPersona persona){
         personaService.addPersona(persona);
         return "Todo salió bien";
     }
 
     @PutMapping("/miInfo")
-        public String editPersona(@RequestBody UserPersona persona){
+        public String edit(@RequestBody UserPersona persona){
             personaService.editPersona(persona);
             return "Todo salió bien";
         }
