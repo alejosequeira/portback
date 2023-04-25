@@ -32,20 +32,20 @@ public class ProyectsController {
 
     //este metodo sirve para listar todos los empleados
     @GetMapping("/proyects")
-    public List<Proyects> listarTodosLosProyects() {
+    public List<Proyects> listarTodos() {
         return repositoriot.findAll();
     }
 
 
     //este metodo sirve para guardar el empleado
     @PostMapping("/proyects")
-    public Proyects guardarProyects(@RequestBody Proyects educationt) {
+    public Proyects guardar(@RequestBody Proyects educationt) {
         return repositoriot.save(educationt);
     }
 
     //este metodo sirve para buscar un empleado
     @GetMapping("/proyects/{id}")
-    public ResponseEntity<Proyects> obtenerProyectsPorId(@PathVariable Long id) {
+    public ResponseEntity<Proyects> obtenerPorId(@PathVariable Long id) {
        Proyects educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el work con el ID : " + id));
         return ResponseEntity.ok(educationt);
@@ -53,7 +53,7 @@ public class ProyectsController {
 
     //este metodo sirve para actualizar empleado
     @PutMapping("/proyects/{id}")
-    public ResponseEntity<Proyects> actualizarProyects(@PathVariable Long id, @RequestBody Proyects detallesProyects) {
+    public ResponseEntity<Proyects> actualizar(@PathVariable Long id, @RequestBody Proyects detallesProyects) {
        Proyects educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el proyect con el ID : " + id));
 
@@ -69,7 +69,7 @@ public class ProyectsController {
 
     //este metodo sirve para eliminar un empleado
     @DeleteMapping("/proyects/{id}")
-    public ResponseEntity<Object> eliminarProyects(@PathVariable Long id) {
+    public ResponseEntity<Object> eliminar(@PathVariable Long id) {
         Proyects educationt = repositoriot.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("No existe el work con el ID : " + id));
 
